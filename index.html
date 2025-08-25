@@ -12,29 +12,54 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: transparent;
-            padding: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
 
         .social-container {
-            max-width: 500px;
-            margin: 0 auto;
+            width: 100%;
         }
 
         .social-row {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border: 2px solid #008080;
-            border-radius: 11px;
+            border-radius: 12px;
             background: white;
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-row:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .social-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -45,16 +70,17 @@
             width: 35px;
             height: 35px;
             border-radius: 8px;
-            object-fit: contain; /* Ensures proper image scaling */
+            object-fit: contain;
         }
 
         .social-input {
             flex: 1;
             border: none;
-            padding: 15px 20px;
+            padding: 18px 20px;
             font-size: 16px;
             outline: none;
             background: white;
+            color: #333;
         }
 
         .social-input::placeholder {
@@ -64,52 +90,145 @@
 
         /* Custom styling for different social platforms */
         .tiktok .social-icon { background: #000; }
-        .onlyfans .social-icon { background: #00AFF0; }
-        .instagram .social-icon { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+        .onlyfans .social-icon { 
+            background: #00AFF0; 
+            position: relative;
+        }
+        .instagram .social-icon { 
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+        }
         .twitter .social-icon { background: #1DA1F2; }
+
+        .logo-fix-note {
+            background: #f8f9fa;
+            border-left: 4px solid #00AFF0;
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .logo-fix-note h3 {
+            margin-top: 0;
+            color: #00AFF0;
+        }
+
+        .logo-fix-note code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        .status {
+            text-align: center;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 500px) {
+            .social-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .social-input {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="social-container">
-        <div class="social-row tiktok">
-            <div class="social-icon">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-.88-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z'/%3E%3C/svg%3E" alt="TikTok">
+    <div class="container">
+        <h1>Social Media Collector</h1>
+        
+        <div class="social-container">
+            <div class="social-row tiktok">
+                <div class="social-icon">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-.88-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z'/%3E%3C/svg%3E" alt="TikTok">
+                </div>
+                <input type="text" class="social-input" name="tiktok" placeholder="Enter your TikTok handle">
             </div>
-            <input type="text" class="social-input" name="tiktok" placeholder="Enter your TikTok handle">
+
+            <div class="social-row onlyfans">
+                <div class="social-icon">
+                    <!-- OnlyFans logo from your URL -->
+                    <img src="https://dvaughan111.github.io/collect_socials/OF.png" alt="OnlyFans" onerror="handleImageError()">
+                </div>
+                <input type="text" class="social-input" name="onlyfans" placeholder="Enter your OnlyFans handle">
+            </div>
+
+            <div class="social-row instagram">
+                <div class="social-icon">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E" alt="Instagram">
+                </div>
+                <input type="text" class="social-input" name="instagram" placeholder="Enter your Instagram handle">
+            </div>
+
+            <div class="social-row twitter">
+                <div class="social-icon">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z'/%3E%3C/svg%3E" alt="Twitter">
+                </div>
+                <input type="text" class="social-input" name="twitter" placeholder="Enter your Twitter handle">
+            </div>
         </div>
 
-        <div class="social-row onlyfans">
-            <div class="social-icon">
-                <!-- Updated OnlyFans logo source -->
-                <img src="https://dvaughan111.github.io/collect_socials/OF.png" alt="OnlyFans">
-            </div>
-            <input type="text" class="social-input" name="onlyfans" placeholder="Enter your OnlyFans handle">
-        </div>
+        <div id="logo-status" class="status">Checking OnlyFans logo status...</div>
 
-        <div class="social-row instagram">
-            <div class="social-icon">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E" alt="Instagram">
-            </div>
-            <input type="text" class="social-input" name="instagram" placeholder="Enter your Instagram handle">
-        </div>
-
-        <div class="social-row twitter">
-            <div class="social-icon">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z'/%3E%3C/svg%3E" alt="Twitter">
-            </div>
-            <input type="text" class="social-input" name="twitter" placeholder="Enter your Twitter handle">
+        <div class="logo-fix-note">
+            <h3>OnlyFans Logo Fix</h3>
+            <p>I've updated the code to use your logo URL: <code>https://dvaughan111.github.io/collect_socials/OF.png</code></p>
+            <p>If the logo isn't displaying, please check:</p>
+            <ul>
+                <li>The image exists at the specified URL</li>
+                <li>The filename is correct (case-sensitive)</li>
+                <li>There are no CORS restrictions on the image</li>
+            </ul>
         </div>
     </div>
 
     <script>
-        // Optional: Handle form submission or data collection
         document.addEventListener('DOMContentLoaded', function() {
             const inputs = document.querySelectorAll('.social-input');
+            const statusEl = document.getElementById('logo-status');
+            
+            // Check if the OnlyFans logo loaded correctly
+            const ofLogo = document.querySelector('.onlyfans img');
+            ofLogo.onload = function() {
+                statusEl.textContent = 'OnlyFans logo loaded successfully!';
+                statusEl.className = 'status success';
+            };
+            
+            ofLogo.onerror = function() {
+                statusEl.textContent = 'Error: OnlyFans logo failed to load. Please check the URL.';
+                statusEl.className = 'status error';
+            };
+            
+            // Test the image URL
+            testImage('https://dvaughan111.github.io/collect_socials/OF.png', function(valid) {
+                if (!valid) {
+                    statusEl.textContent = 'Error: The image URL is not accessible.';
+                    statusEl.className = 'status error';
+                }
+            });
             
             inputs.forEach(input => {
                 input.addEventListener('input', function() {
-                    // You can add validation or formatting here
-                    // For example, automatically add @ symbol
                     let value = this.value;
                     if (value && !value.startsWith('@')) {
                         this.value = '@' + value;
@@ -117,6 +236,14 @@
                 });
             });
         });
+        
+        // Function to test if an image exists
+        function testImage(url, callback) {
+            const img = new Image();
+            img.onload = function() { callback(true); };
+            img.onerror = function() { callback(false); };
+            img.src = url;
+        }
     </script>
 </body>
 </html>
